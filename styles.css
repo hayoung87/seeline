@@ -415,6 +415,12 @@ button:focus-visible {
   border-color: var(--color-ink);
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 /* ---------- footer ---------- */
 
 .site-footer {
