@@ -104,47 +104,90 @@
   <section class="section" id="work">
     <div class="wrap">
       <h2 class="section-title">작업</h2>
-      <p class="section-lead">최근 진행한 프로젝트 중 일부입니다.</p>
-      <div class="work-grid">
+      <p class="section-lead">최근 진행한 프로젝트 중 일부입니다. 좌우로 넘겨서 확인하세요.</p>
+    </div>
+    <div class="wrap">
+      <div class="work-carousel" id="workCarousel">
+        <div class="work-viewport">
+          <div class="work-track" id="workTrack">
 
-        <article class="work-card work-card-wide">
-          <img src="images/work-namyang-living.jpg" alt="남양휴튼 거실 겸 다이닝 공간" loading="lazy">
-          <h3>남양휴튼</h3>
-          <p class="work-meta">주거공간 · 거실·다이닝</p>
-        </article>
+            <article class="work-slide">
+              <img src="images/work-namyang-living.jpg" alt="남양휴튼 거실 겸 다이닝 공간" loading="lazy">
+              <div class="work-caption">
+                <h3>남양휴튼</h3>
+                <p class="work-meta">주거공간 · 거실·다이닝</p>
+              </div>
+            </article>
 
-        <article class="work-card">
-          <img src="images/work-namyang-kitchen.jpg" alt="남양휴튼 주방" loading="lazy">
-          <h3>남양휴튼</h3>
-          <p class="work-meta">주거공간 · 주방</p>
-        </article>
+            <article class="work-slide">
+              <img src="images/work-namyang-kitchen.jpg" alt="남양휴튼 주방" loading="lazy">
+              <div class="work-caption">
+                <h3>남양휴튼</h3>
+                <p class="work-meta">주거공간 · 주방</p>
+              </div>
+            </article>
 
-        <article class="work-card">
-          <img src="images/work-proja-kitchen.jpg" alt="주거 프로젝트 주방" loading="lazy">
-          <h3>프로젝트 A</h3>
-          <p class="work-meta">주거공간 · 주방</p>
-        </article>
+            <article class="work-slide">
+              <img src="images/work-haeundoosan-entry.jpg" alt="해운두산3차 302동 503호 드레스룸" loading="lazy">
+              <div class="work-caption">
+                <h3>해운두산3차 302동 503호</h3>
+                <p class="work-meta">주거공간 · 드레스룸</p>
+              </div>
+            </article>
 
-        <article class="work-card">
-          <img src="images/work-proja-closet.jpg" alt="주거 프로젝트 드레스룸" loading="lazy">
-          <h3>프로젝트 A</h3>
-          <p class="work-meta">주거공간 · 드레스룸</p>
-        </article>
+            <article class="work-slide">
+              <img src="images/work-haeundoosan-living.jpg" alt="해운두산3차 302동 503호 거실" loading="lazy">
+              <div class="work-caption">
+                <h3>해운두산3차 302동 503호</h3>
+                <p class="work-meta">주거공간 · 거실</p>
+              </div>
+            </article>
 
-        <article class="work-card">
-          <img src="images/work-projb-living.jpg" alt="주거 프로젝트 거실" loading="lazy">
-          <h3>프로젝트 B</h3>
-          <p class="work-meta">주거공간 · 거실</p>
-        </article>
+            <article class="work-slide">
+              <img src="images/work-haeundoosan-kitchen.jpg" alt="해운두산3차 302동 503호 주방" loading="lazy">
+              <div class="work-caption">
+                <h3>해운두산3차 302동 503호</h3>
+                <p class="work-meta">주거공간 · 주방</p>
+              </div>
+            </article>
 
-        <article class="work-card">
-          <img src="images/work-projb-kitchen.jpg" alt="주거 프로젝트 주방" loading="lazy">
-          <h3>프로젝트 B</h3>
-          <p class="work-meta">주거공간 · 주방</p>
-        </article>
+            <article class="work-slide">
+              <img src="images/work-haeundoosan-closet.jpg" alt="해운두산3차 302동 503호 드레스룸" loading="lazy">
+              <div class="work-caption">
+                <h3>해운두산3차 302동 503호</h3>
+                <p class="work-meta">주거공간 · 드레스룸</p>
+              </div>
+            </article>
 
+            <article class="work-slide">
+              <img src="images/work-proja-kitchen.jpg" alt="주거 프로젝트 주방" loading="lazy">
+              <div class="work-caption">
+                <h3>프로젝트 A</h3>
+                <p class="work-meta">주거공간 · 주방</p>
+              </div>
+            </article>
+
+            <article class="work-slide">
+              <img src="images/work-proja-closet.jpg" alt="주거 프로젝트 드레스룸" loading="lazy">
+              <div class="work-caption">
+                <h3>프로젝트 A</h3>
+                <p class="work-meta">주거공간 · 드레스룸</p>
+              </div>
+            </article>
+
+          </div>
+
+          <button class="work-nav work-nav-prev" id="workPrev" aria-label="이전 사진" type="button">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="work-nav work-nav-next" id="workNext" aria-label="다음 사진" type="button">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="work-dots" id="workDots"></div>
       </div>
-      <p class="work-note">* 프로젝트 A · B는 실제 진행한 작업이며, 정식 프로젝트명은 추후 업데이트 예정입니다.</p>
+      <p class="work-note">* 프로젝트 A는 실제 진행한 작업이며, 정식 프로젝트명은 추후 업데이트 예정입니다.</p>
     </div>
   </section>
 

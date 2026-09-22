@@ -295,45 +295,113 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
-/* ---------- work ---------- */
+/* ---------- work carousel ---------- */
 
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem 2rem;
+.work-carousel {
+  margin-top: 2rem;
 }
 
-.work-card-wide {
-  grid-column: span 2;
+.work-viewport {
+  position: relative;
+  overflow: hidden;
 }
 
-.work-card img {
+.work-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.work-track.is-dragging {
+  transition: none;
+}
+
+.work-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  user-select: none;
+}
+
+.work-slide img {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  -webkit-user-drag: none;
 }
 
-.work-card:hover img {
-  transform: scale(1.02);
+.work-caption {
+  padding-top: 1.25rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .work-card:hover img {
-    transform: none;
-  }
-}
-
-.work-card h3 {
-  font-size: 1.1rem;
-  margin: 1.1rem 0 0.3rem;
+.work-caption h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
 }
 
 .work-meta {
   font-size: 0.88rem;
   color: var(--color-brass);
   margin-bottom: 0;
+}
+
+.work-nav {
+  position: absolute;
+  top: calc(50% - 1.4rem);
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(245, 243, 238, 0.85);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.work-nav:hover {
+  background: var(--color-paper);
+}
+
+.work-nav-prev {
+  left: 1rem;
+}
+
+.work-nav-next {
+  right: 1rem;
+}
+
+.work-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.work-dots button {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--color-line);
+  cursor: pointer;
+}
+
+.work-dots button.is-active {
+  background: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .work-slide img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .work-nav {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
 }
 
 .work-note {
