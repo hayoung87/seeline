@@ -13,3 +13,6 @@ const products=[
 
 const variants={ink:[['4인',3030,1300,685],['2인',1550,1050,685],['5인',3415,1550,685],['6인',3800,1550,685]],tartan:[['3인',2300,1070,610],['3인 B',2540,1070,610],['4인 A',2940,1070,610]],'ink-table':[['기본',1310,772,358]],kante:[['기본',780,780,320]],round:[['기본',1100,1100,740]],oval:[['기본',1600,850,740]],petalo:[['기본',490,500,770]],note:[['기본',562,496,773]]};
 products.forEach(p=>{p.image='images/products/'+p.id+'.png';p.variants=variants[p.id];});
+
+const productCategories={ink:'sofa',tartan:'sofa','ink-table':'sofa-table',kante:'sofa-table',round:'dining-table',oval:'dining-table',petalo:'chair',note:'chair'};
+products.forEach(p=>p.category=productCategories[p.id]);
