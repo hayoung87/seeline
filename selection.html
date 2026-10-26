@@ -1,6 +1,51 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>큐레이티드 셀렉션 | 디자인시선</title><meta name="description" content="잭슨카멜레온 가구로 제안하는 거실과 다이닝. 취향과 예산으로 제품을 찾고 상담 목록을 만들어보세요."><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="selection.css"></head><body>
-<a class="skip-link" href="#main">본문 바로가기</a><header class="site-header"><div class="wrap header-inner"><a class="logo" href="index.html">디자인시선</a><nav aria-label="셀렉션 메뉴"><a href="index.html#work">시공 사례</a> · <a href="#saved">관심 목록 <span id="count">0</span></a></nav></div></header>
-<main id="main"><section class="selection-hero"><div class="wrap"><p class="hero-kicker">CURATED SELECTION / DESIGN SISEON</p><h1>공간의 균형을 완성하는<br>가구 셀렉션</h1><p>시공이 끝난 뒤의 삶까지 함께 그립니다.<br>거실과 다이닝에 어울리는 가구를 브랜드별로 살펴보세요.</p><p class="work-note">디자인시선의 독립 큐레이션 · 상품 판매·제휴 여부 미확정</p></div></section>
-<section class="section"><div class="wrap"><h2 class="section-title">브랜드 셀렉션</h2><p class="section-intro">브랜드를 고르면 해당 제품군을 사진으로 볼 수 있습니다. 사진을 누르면 상품 정보와 원문 링크를 확인할 수 있어요.</p><div id="brandLinks" class="brand-links"></div><h2 class="section-title selection-products-title">공간별 셀렉션</h2><div class="filters"><label>브랜드<select id="brand"><option value="all">전체 브랜드</option></select></label><label>공간<select id="room"><option value="all">전체 공간</option><option value="living">거실</option><option value="dining">다이닝</option></select></label><label>가구 종류<select id="category"><option value="all">전체 가구</option><option value="sofa">소파</option><option value="lounge-chair">라운지체어</option><option value="dining-table">식탁</option><option value="sofa-table">소파 테이블</option><option value="chair">의자</option><option value="stool">스툴</option><option value="storage">수납·선반</option><option value="desk">책상</option><option value="mirror">거울</option><option value="lighting">조명</option><option value="rug">러그·카펫</option></select></label><label>제품 검색<input id="search" type="search" placeholder="브랜드, 제품명, 소재…"></label><label>제품 최대 폭 (mm)<input id="width" type="number" min="1" placeholder="예: 1600"></label><label>단품 예산 상한 (원)<input id="budget" type="number" min="1" placeholder="예: 1500000"></label></div><p class="work-note">제품 크기·가격 필터는 확인 가능한 실측값·표시가가 있는 제품에만 적용됩니다. 최신 옵션과 가격은 원문 상품 페이지를 기준으로 확인해 주세요.</p><p id="results" aria-live="polite"></p><div id="grid" class="product-grid"></div></div></section>
-<section class="section section-alt"><div class="wrap"><h2 class="section-title">함께 제안하는 구성</h2><div id="sets" class="set-grid"></div><p class="work-note">조합은 디자인시선의 제안입니다. 색상 옵션·납기·배송·의자 배치 가능 여부는 상담에서 확인합니다.</p></div></section>
-<section class="section" id="saved"><div class="wrap"><h2 class="section-title">나의 상담 목록</h2><p>관심 제품을 모아두고 아래 내용을 복사해 상담 신청폼에 붙여넣어 주세요.</p><div id="savedList" aria-live="polite"></div><textarea id="summary" readonly aria-label="상담 전달 내용" rows="8"></textarea><p><button class="button button-primary" id="copy">상담 내용 복사</button> <a class="button button-primary" href="https://tally.so/r/WOWvgP" target="_blank" rel="noopener">상담 신청폼 열기</a></p><p id="copyStatus" role="status"></p><p class="work-note">관심 목록은 이 브라우저에 저장됩니다. 신청폼에는 자동 전송되지 않습니다. 제품의 최신 가격·옵션·재고는 각 공식 브랜드 또는 판매처 페이지에서 확인해 주세요. 제품 사진은 브랜드 공식몰 또는 오늘의집 상품 이미지이며 각 상품 상세로 연결됩니다.</p></div></section></main><footer class="site-footer"><div class="wrap">디자인시선 · 마산합포구 문화동 3길 23, 2층 <a href="index.html#contact">문의</a></div></footer><script src="catalog.js"></script><script src="selection.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>가구매칭 | 디자인시선</title>
+<meta name="description" content="내 공간에 어울리는 가구 조합. 거실과 다이닝의 가구를 비례·소재·동선으로 살펴보고, 제품별 배치 미리보기와 상담으로 연결하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="selection.css"><link rel="stylesheet" href="matching.css">
+</head>
+<body class="matching-page">
+<a class="skip-link" href="#main">본문 바로가기</a>
+<header class="site-header"><div class="wrap header-inner"><a class="logo" href="index.html">디자인시선</a><nav class="matching-nav" aria-label="주 메뉴"><a href="index.html#philosophy">시선의 기준</a><a href="index.html#work">공간 프로젝트</a><a href="selection.html" aria-current="page">가구매칭</a><a class="saved-link" href="#saved">내 조합 <span id="count">0</span></a></nav></div></header>
+<main id="main">
+<section class="matching-hero"><div class="wrap matching-hero-grid"><div>
+<p class="hero-kicker">FURNITURE MATCHING · DESIGN SEELINE</p><p class="matching-name">가구매칭</p>
+<h1>내 공간에 어울리는<br>가구의 조합.</h1><p class="matching-intro">소파의 크기, 테이블의 높이, 그 사이의 여백.<br>가구와 공간의 관계를 함께 살펴봅니다.</p>
+<a class="button button-primary" href="#combinations">우리 집 가구 조합 찾기 <span aria-hidden="true">↗</span></a><a class="hero-secondary" href="#products">제품부터 살펴보기 ↓</a>
+</div><div class="matching-cover"><span class="cover-label">A STUDY IN BALANCE / 01</span><img class="cover-sofa" src="images/products/ink.png" alt="잭슨카멜레온 잉크 소파"><img class="cover-table" src="images/products/ink-table.png" alt="잉크 소파 테이블"><div class="cover-caption"><span>곡선으로 이어지는 거실</span><small>잉크 소파 × 잉크 소파 테이블 · 제품 조합 예시</small></div></div></div></section>
+<div class="wrap"><ol class="matching-steps"><li><span>01</span><div><strong>공간과 조합 살피기</strong><p>우리 집에 어울리는 방향을 찾아보세요.</p></div></li><li><span>02</span><div><strong>제품별 크기 확인하기</strong><p>치수가 등록된 제품은 배치해볼 수 있어요.</p></div></li><li><span>03</span><div><strong>내 조합으로 상담하기</strong><p>담아둔 가구를 바탕으로 함께 다듬어요.</p></div></li></ol></div>
+<section class="section matching-section" id="combinations"><div class="wrap">
+<div class="matching-section-head"><div><p class="hero-kicker">01 / FIND YOUR COMBINATION</p><h2 class="section-title">어떤 공간을 바꾸고 싶으세요?</h2></div><p>소재와 형태가 이어지는<br>가구 조합부터 살펴보세요.</p></div>
+<div class="room-switch" role="group" aria-label="가구매칭 공간 선택"><button type="button" data-room="living" aria-pressed="true">거실</button><button type="button" data-room="dining" aria-pressed="false">다이닝</button><button type="button" data-room="all" aria-pressed="false">전체 공간</button></div>
+<div id="sets" class="set-grid"></div><button type="button" id="moreSets" class="text-button">다른 조합 더 보기 ↓</button>
+<p class="work-note">디자인시선이 제안하는 조합입니다. 실제 공간의 크기·색상·동선에 맞춰 상담에서 구성을 다듬습니다.</p>
+</div></section>
+<section class="section section-alt matching-section" id="products"><div class="wrap">
+<div class="matching-section-head"><div><p class="hero-kicker">02 / MAKE IT YOURS</p><h2 class="section-title">내 조합에 더할 가구</h2></div><p>사진을 누르면 상세 정보를 확인할 수 있어요.<br>‘배치 가능’ 제품은 치수 또는 집 사진으로 미리보기.</p></div>
+<div class="matching-filters">
+<label>공간<select id="room"><option value="all">전체 공간</option><option value="living" selected>거실</option><option value="dining">다이닝</option></select></label>
+<label>가구 종류<select id="category"><option value="all">전체 가구</option><option value="sofa">소파</option><option value="sofa-table">소파 테이블</option><option value="lounge-chair">라운지체어</option><option value="dining-table">식탁</option><option value="chair">의자</option><option value="stool">스툴</option><option value="storage">수납·선반</option><option value="desk">책상</option><option value="mirror">거울</option><option value="lighting">조명</option><option value="rug">러그·카펫</option></select></label>
+<label>브랜드<select id="brand"><option value="all">전체 브랜드</option></select></label>
+<label class="search-label">제품 검색<input id="search" type="search" placeholder="제품명, 브랜드, 소재"></label>
+</div>
+<div class="filter-options"><label class="check-label"><input type="checkbox" id="placeable">배치 미리보기 가능한 제품만</label><button class="text-button" id="resetFilters" type="button">필터 초기화</button></div>
+<details class="extra-filters"><summary>크기·예산으로 좁혀보기</summary><div class="extra-filter-grid"><label>제품 최대 폭 (mm)<input id="width" type="number" min="1" placeholder="예: 2000"></label><label>단품 예산 상한 (원)<input id="budget" type="number" min="1" placeholder="예: 1500000"></label></div><p class="work-note">등록된 규격·참고 가격이 있는 제품에 적용됩니다. 소파는 등록된 구성 중 하나라도 폭 조건에 맞으면 표시하며, 최종 옵션·가격은 상품 상세에서 확인해 주세요.</p></details>
+<div class="results-row"><p id="results" aria-live="polite"></p><span>사진 → 상세 → 제품별 배치</span></div>
+<div id="grid" class="product-grid"></div><p class="load-more-wrap"><button class="button button-primary" id="loadMore" type="button">제품 더 보기</button></p>
+<p class="work-note">배치 미리보기는 제품 한 개씩 확인하는 간략 모델입니다. 함께 배치했을 때의 동선과 조화는 상담에서 살펴봅니다.</p>
+</div></section>
+<section class="section matching-section" id="saved"><div class="wrap">
+<div class="matching-section-head"><div><p class="hero-kicker">03 / YOUR COMBINATION</p><h2 class="section-title">내가 담은 가구 조합</h2></div><p>마음에 드는 가구를 모으면<br>상담을 시작할 기준이 됩니다.</p></div>
+<div id="savedList" aria-live="polite"></div>
+<div class="matching-brief"><div><h3>우리 집 이야기를 더해 주세요.</h3><p>공간 크기와 원하는 분위기를 적어두면<br>가구의 비례와 동선을 함께 살펴볼 수 있어요.</p><div class="extra-filter-grid"><label>공간 크기·특징<input id="spaceNote" placeholder="예: 거실 4 × 3.5m, 기존 소파 유지"></label><label>원하는 분위기<input id="moodNote" placeholder="예: 따뜻한 소재, 여유로운 동선"></label></div></div><div><label class="summary-label" for="summary">상담 전달 내용</label><textarea id="summary" readonly rows="6"></textarea><div class="brief-actions"><button class="button button-primary" id="copy" type="button">내용 복사</button><a class="button outline-button" href="https://tally.so/r/WOWvgP" target="_blank" rel="noopener">상담 신청하기 ↗</a></div><p id="copyStatus" role="status"></p><p class="work-note">복사한 내용을 상담 신청폼의 요청 사항에 붙여넣어 주세요. 목록은 이 브라우저에 저장되며 신청폼에 자동 전송되지 않습니다.</p></div></div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><div><p class="footer-logo">디자인시선</p><p>공간을 보는 새로운 시선, 디자인시선.</p></div><a href="index.html#contact">연락처 · 상담 안내 ↗</a></div></footer>
+<a class="matching-dock" href="#saved">내 조합 <span id="dockCount">0</span> <span aria-hidden="true">↗</span></a><div id="matchToast" class="match-toast" role="status"></div>
+<noscript><p class="wrap">가구 목록과 배치 기능을 이용하려면 브라우저의 JavaScript를 켜주세요. 상담은 <a href="https://tally.so/r/WOWvgP">상담 신청폼</a>에서 가능합니다.</p></noscript>
+<script src="catalog.js"></script><script src="selection.js"></script>
+</body></html>
