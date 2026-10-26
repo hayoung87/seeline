@@ -21,7 +21,8 @@ fields.forEach(k=>$(k).addEventListener('input',()=>C.setBrief({[k]:$(k).value})
 $('cartItems').addEventListener('click',e=>{const b=e.target.closest('[data-remove]');if(b)C.remove(b.dataset.remove);});
 $('cartProjects').addEventListener('click',e=>{const b=e.target.closest('[data-remove-project]');if(b)C.removeProject(b.dataset.removeProject);});
 $('cartItems').addEventListener('change',e=>{if(e.target.matches('[data-quantity]')){const n=Number(e.target.value);if(!Number.isInteger(n)||n<1||n>99){e.target.value=C.item(e.target.dataset.quantity).quantity;return;}C.updateItem(e.target.dataset.quantity,{quantity:n});}if(e.target.matches('[data-variant]'))C.updateItem(e.target.dataset.variant,{variantIndex:e.target.value===''?null:Number(e.target.value)});});
-async function copyInquiry(){try{await navigator.clipboard.writeText(C.summary());$('inquiryStatus').textContent='복사했습니다. 상담폼의 요청 사항에 붙여넣고 제출해 주세요.';return true;}catch{$('inquirySummary').focus();$('inquirySummary').select();$('inquiryStatus').textContent='자동 복사가 제한되어 있습니다. 선택된 상담 내용을 직접 복사한 뒤 신청폼에 붙여넣어 주세요.';return false;}}
+async function copyInquiry(message='상담 내용을 복사했습니다.'){try{await navigator.clipboard.writeText(C.summary());$('inquiryStatus').textContent=message;return true;}catch{$('inquirySummary').focus();$('inquirySummary').select();$('inquiryStatus').textContent='자동 복사가 제한되어 있습니다. 선택된 내용을 직접 복사한 뒤 열린 상담 화면에 붙여넣어 주세요.';return false;}}
 $('copyInquiry').onclick=copyInquiry;
-$('consultLink').addEventListener('click',()=>{copyInquiry();});
+$('consultLink').addEventListener('click',()=>{copyInquiry('상담 내용을 복사했습니다. 상담폼의 요청 사항에 붙여넣고 제출해 주세요.');});
+$('kakaoInquiry').addEventListener('click',()=>{copyInquiry('상담 내용을 복사했습니다. 열린 카카오톡 채팅에서 입력창을 눌러 붙여넣고 전송해 주세요.');});
 window.addEventListener('seeline:cart',render);render();
