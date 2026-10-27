@@ -1,0 +1,11 @@
+{
+  "name": "design-seeline",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": { "nodemailer": "10.2.1" }
+}
