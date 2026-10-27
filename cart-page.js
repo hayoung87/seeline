@@ -27,16 +27,12 @@ function render(){
  }
  renderStyle();
  const b=C.brief();fields.forEach(k=>{if(document.activeElement!==$(k)&&b[k]!=null)$(k).value=b[k];});
- const text=C.summary();$('inquirySummary').value=text;$('emailInquiry').href='mailto:truenature00@naver.com?subject='+encodeURIComponent('[디자인시선] 내 공간 인테리어 상담')+'&body='+encodeURIComponent(text);
- if(C.storageFailed()){$('storageNotice').hidden=false;$('storageNotice').textContent='브라우저 저장이 제한되어 있습니다. 이동 전 상담 내용을 복사해 주세요.';}
+ $('inquirySummary').value=C.summary();
+ if(C.storageFailed()){$('storageNotice').hidden=false;$('storageNotice').textContent='브라우저 저장이 제한되어 있습니다. 이 화면에서 바로 신청할 수 있지만, 다른 화면으로 이동하면 작성 내용이 유지되지 않을 수 있습니다.';}
 }
 fields.forEach(k=>$(k).addEventListener('input',()=>C.setBrief({[k]:$(k).value})));
 $('consultStyle').addEventListener('click',e=>{if(e.target.closest('#removeStyle')){C.setBrief({styleId:''});$('changeStyle').focus();}});
 $('cartItems').addEventListener('click',e=>{const b=e.target.closest('[data-remove]');if(b)C.remove(b.dataset.remove);});
 $('cartProjects').addEventListener('click',e=>{const b=e.target.closest('[data-remove-project]');if(b)C.removeProject(b.dataset.removeProject);});
 $('cartItems').addEventListener('change',e=>{if(e.target.matches('[data-quantity]')){const n=Number(e.target.value);if(!Number.isInteger(n)||n<1||n>99){e.target.value=C.item(e.target.dataset.quantity).quantity;return;}C.updateItem(e.target.dataset.quantity,{quantity:n});}if(e.target.matches('[data-variant]'))C.updateItem(e.target.dataset.variant,{variantIndex:e.target.value===''?null:Number(e.target.value)});});
-async function copyInquiry(message='상담 내용을 복사했습니다.'){try{await navigator.clipboard.writeText(C.summary());$('inquiryStatus').textContent=message;return true;}catch{$('inquirySummary').focus();$('inquirySummary').select();$('inquiryStatus').textContent='자동 복사가 제한되어 있습니다. 선택된 내용을 직접 복사한 뒤 열린 상담 화면에 붙여넣어 주세요.';return false;}}
-$('copyInquiry').onclick=()=>copyInquiry();
-$('consultLink').addEventListener('click',()=>{copyInquiry('상담 내용을 복사했습니다. 상담폼의 요청 사항에 붙여넣고 제출해 주세요.');});
-$('kakaoInquiry').addEventListener('click',()=>{copyInquiry('상담 내용을 복사했습니다. 열린 카카오톡 채팅에서 입력창을 눌러 붙여넣고 전송해 주세요.');});
 window.addEventListener('seeline:cart',render);render();
